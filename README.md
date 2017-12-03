@@ -1,18 +1,36 @@
 # LanguageTranslator
-Developped by Devloris for PokExp Community
-Few implementations coming soon
+Developped by Loris Pinna for PokExp 
 
-##How to call ?
-First, include("class/Lang.php");
-Next, initialise the class, by, for exemple $Lang = new Lang("LANG");
+## How to use ?
+- First, `include("Lang.php");`
+- Initialise the class, by, for exemple `$Lang = new Lang("fr")`;
+- Load translation file using `$Lang->translationFile('index');` (do not use extansion)
+- Call text using `$Lang->translate("text_key");`
 
-//COMING SOON
-Call a file, by include($Lang->translationFile("FILE NAME WITHOUT EXTENSION"));
-Next, to made a text translatable, do $Lang->translateText("TEXT OF TRANSLATION FILE");
+## Add translation
+### New file :
+- Create new file into `lang/(your language)/filename.php`
+- Add string into to add translation (example : `$hello = 'Hello world';`) 
+- Save and reload page
 
-##Add translation
-In your translation file, just add a new String variable
+### Existant file :
+- Open your file located at `lang/(your language)/filename.php`
+- Add string into to add translation (example : `$hello = 'Hello world';`) 
+- Save and reload page
 
-##Special Text
-You can add special variable on your file, you need to add {i}, and when you call a translateText, just do $Lang->translateText("TEXT OF TRANSLATION FILE", "ARGUMENT 1");
-You can do that with {i2} also, by adding an "ARGUMENT 2" to the precendent exemple. 
+## Special Text
+- Create a translation which contain `{key}` (example : `$hello = 'Hello {nickname}';`)
+- Call `translateText` (example : `$Lang->translate('hello', array("nickname"=> 'Loris'))`)
+- Reload your page, you will see `Hello Loris`
+ 
+You can do with more arguments
+
+## Translation folder
+* lang
+  * fr
+    * `account.php`
+    * `shop.php`
+  * en
+    * `account.php`
+    * `shop.php`
+    
